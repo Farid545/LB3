@@ -61,6 +61,11 @@ func (pw *Visualizer) run(s screen.Screen) {
 
 	pw.w = w
 
+	pw.pos.Min.X = (800 - 400) / 2
+	pw.pos.Min.Y = (800 - 250) / 2
+	pw.pos.Max.X = pw.pos.Min.X + 400
+	pw.pos.Max.Y = pw.pos.Min.Y + 250
+
 	events := make(chan any)
 	go func() {
 		for {
@@ -141,9 +146,9 @@ func (pw *Visualizer) drawDefaultUI() {
 
 	// Розміри прямокутників.
 	horizontalRectWidth := 400
-	horizontalRectHeight := 20
-	verticalRectWidth := 40
-	verticalRectHeight := 200
+	horizontalRectHeight := 120
+	verticalRectWidth := 120
+	verticalRectHeight := 250
 
 	// Координати верхнього лівого кута горизонтального прямокутника.
 	horizontalRectX := pw.pos.Min.X
@@ -154,7 +159,7 @@ func (pw *Visualizer) drawDefaultUI() {
 	pw.w.Fill(horizontalRect, color.White, draw.Src)
 
 	// Координати верхнього лівого кута вертикального прямокутника.
-	verticalRectX := pw.pos.Min.X + 180
+	verticalRectX := pw.pos.Min.X + 140
 	verticalRectY := pw.pos.Min.Y + 20
 
 	// Малюємо вертикальний прямокутник.
